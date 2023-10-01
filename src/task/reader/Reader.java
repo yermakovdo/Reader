@@ -5,11 +5,11 @@ import java.awt.print.Book;
 import java.util.Date;
 
 public class Reader {
-    private String fullName;
-    private String libraryCard;
-    private String faculty;
-    private String  birthDate;
-    private String phoneNumber;
+    public String fullName;
+    public String libraryCard;
+    public String faculty;
+    public String  birthDate;
+    public String phoneNumber;
 
     public Reader(String fullName, String libraryCard, String faculty, String birthDate, String phoneNumber){
         this.fullName = fullName;
@@ -51,9 +51,9 @@ public class Reader {
         System.out.println(fullName + " вернул книги: " + String.join(", ", bookNames) + "\n");
     }
 
-    class Book{
-        private String name;
-        private String author;
+    static class Book{
+        public String name;
+        public String author;
 
         public Book(String name, String author){
             this.name = name;
@@ -66,23 +66,6 @@ public class Reader {
 
         public String getAuthor(){
             return author;
-        }
-    }
-
-    public class Main{
-        public void main(String[] args){
-            Reader[] readers = new Reader[3];
-            readers[0] = new Reader("Пушкин А.А.", "0001", "Юридический", "11.01.1911", "+381112223344");
-            readers[1] = new Reader("Чайковский Б.Б.", "0002", "Экономический", "22.02.2002", "+382223334455");
-            readers[2] = new Reader("Шевченко В.В.", "0003", "Философский", "03.03.1933", "+383334445566");
-
-            readers[0].takeBook(2);
-            readers[1].takeBook("Приключения", "Словарь", "Энциклопедия");
-            readers[2].takeBook(new Book("Красное вино", "Коля"), new Book("Рыбалка", "Дед"));
-
-            readers[0].returnBook(1);
-            readers[1].returnBook("Приключения", "Словарь", "Энциклопедия");
-            readers[2].returnBook(new Book("Красное вино", "Коля"), new Book("Рыбалка", "Дед"));
         }
     }
 }
